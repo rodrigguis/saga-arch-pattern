@@ -33,13 +33,33 @@ public class PaymentService {
     @PostConstruct
     public void initUserBalanceInDB() {
         userBalanceRepository.saveAll(
-                Stream.of(new UserBalance(101, Double.valueOf(5000)),
-                          new UserBalance(102, Double.valueOf(3000)),
-                          new UserBalance(103, Double.valueOf(4200)),
-                          new UserBalance(104, Double.valueOf(20000)),
-                          new UserBalance(105, Double.valueOf(999)))
+                Stream.of(new UserBalance(101, new BigDecimal(5000)),
+                          new UserBalance(102, new BigDecimal(3000)),
+                          new UserBalance(103, new BigDecimal(4200)),
+                          new UserBalance(104, new BigDecimal(20000)),
+                          new UserBalance(105, new BigDecimal(999)))
                         .collect(Collectors.toList()));
     }
+
+//    @Transactional
+//    public PaymentEvent newOrderEvent(OrderEvent orderEvent) {
+//        OrderRequestDTO orderRequestDTO = orderEvent.getOrderRequestDTO();
+//        PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO(orderRequestDTO.getOrderId(),
+//                orderRequestDTO.getOrderId(), orderEvent.getOrderRequestDTO().getAmount());
+//
+//        //TODO: Verify this lambda, because I not be believe this
+//        return userBalanceRepository.findById(orderRequestDTO.getUserId())
+//                .filter(ub -> ub.getPrice() > orderRequestDTO.getAmount())
+//                .map(ub -> {
+//                    ub.setPrice(ub.getPrice() - orderRequestDTO.getAmount());
+//                    userTransactionRepository.save(new UserTransaction(orderRequestDTO.getOrderId(),
+//                            orderRequestDTO.getUserId(),
+//                            orderEvent.getOrderRequestDTO().getAmount()));
+//
+//                    return new PaymentEvent(paymentRequestDTO, PaymentStatus.PAYMENT_COMPLETED);
+//                }).orElse(new PaymentEvent(paymentRequestDTO, PaymentStatus.PAYMENT_FAILED));
+//
+//    }
 
     @Transactional
     public PaymentEvent newOrderEvent(OrderEvent orderEvent) {
@@ -49,30 +69,12 @@ public class PaymentService {
 
         //TODO: Verify this lambda, because I not be believe this
         return userBalanceRepository.findById(orderRequestDTO.getUserId())
-                .filter(ub -> ub.getPrice() > orderRequestDTO.getAmount())
-                .map(ub -> {
-                    ub.setPrice(ub.getPrice() - orderRequestDTO.getAmount());
-                    userTransactionRepository.save(new UserTransaction(orderRequestDTO.getOrderId(),
-                            orderRequestDTO.getUserId(),
-                            orderEvent.getOrderRequestDTO().getAmount()));
-
-                    return new PaymentEvent(paymentRequestDTO, PaymentStatus.PAYMENT_COMPLETED);
-                }).orElse(new PaymentEvent(paymentRequestDTO, PaymentStatus.PAYMENT_FAILED));
-
-    }
-
-/*    @Transactional
-    public PaymentEvent newOrderEventOther(OrderEvent orderEvent) {
-        OrderRequestDTO orderRequestDTO = orderEvent.getOrderRequestDTO();
-        PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO(orderRequestDTO.getOrderId(),
-                orderRequestDTO.getOrderId(), orderEvent.getOrderRequestDTO().getAmount());
-
-        //TODO: Verify this lambda, because I not be believe this
-        return userBalanceRepository.findById(orderRequestDTO.getUserId())
                 .filter(ub -> {
-                    if (ub.getPrice().compareTo(orderRequestDTO.getAmount()) > -1)
+                    if (ub.getPrice().compareTo(orderRequestDTO.getAmount()) > -1) {
                         ub.setPrice(ub.getPrice().subtract(orderRequestDTO.getAmount()));
-                    return true;
+                        return true;
+                    }
+                    return false;
                 })
                 .map(ub -> {
                     ub.setPrice(ub.getPrice().subtract(orderRequestDTO.getAmount()));
@@ -83,7 +85,7 @@ public class PaymentService {
                     return new PaymentEvent(paymentRequestDTO, PaymentStatus.PAYMENT_COMPLETED);
                 }).orElse(new PaymentEvent(paymentRequestDTO, PaymentStatus.PAYMENT_FAILED));
 
-    } */
+    }
 
     @Transactional
     public void cancelOrderEvent(OrderEvent orderEvent) {
@@ -91,7 +93,7 @@ public class PaymentService {
                 .ifPresent(ut -> {
                     userTransactionRepository.delete(ut);
                     userTransactionRepository.findById(ut.getUserId())
-                            .ifPresent(ub -> ub.setAmount(ub.getAmount() + (ut.getAmount())));
+                            .ifPresent(ub -> ub.setAmount(ub.getAmount().add(ut.getAmount())));
                 });
     }
 }

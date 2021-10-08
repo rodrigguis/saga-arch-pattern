@@ -14,7 +14,7 @@ public class OrderResponseDTO {
 
     private Integer userId;
     private Integer productId;
-    private Double amount;
+    private BigDecimal amount;
     private Integer orderId;
     private OrderStatus orderStatus;
 }

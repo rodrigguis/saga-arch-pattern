@@ -32,7 +32,7 @@ public class PurchaseOrder {
 
     private Integer userId;
     private Integer productId;
-    private Double price;
+    private BigDecimal price;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;

@@ -13,7 +13,7 @@ public class PaymentRequestDTO {
 
     private Integer userId;
     private Integer orderId;
-    private Double amount;
+    private BigDecimal amount;
 
 }
 

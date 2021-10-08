@@ -25,7 +25,7 @@ public class UserTransaction {
 
     private Integer userId;
 
-    private Double amount;
+    private BigDecimal amount;
 
 
 }
