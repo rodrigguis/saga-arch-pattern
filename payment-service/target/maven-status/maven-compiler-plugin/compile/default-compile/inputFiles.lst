@@ -1,0 +1,6 @@
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/payment-service/src/main/java/org/example/saga/payment/service/PaymentService.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/payment-service/src/main/java/org/example/saga/payment/entity/UserTransaction.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/payment-service/src/main/java/org/example/saga/payment/entity/UserBalance.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/payment-service/src/main/java/org/example/saga/payment/config/PaymentConsumerConfig.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/payment-service/src/main/java/org/example/saga/payment/repository/UserBalanceRepository.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/payment-service/src/main/java/org/example/saga/payment/repository/UserTransactionRepository.java

@@ -1,0 +1,6 @@
+org/example/saga/payment/entity/UserBalance.class
+org/example/saga/payment/entity/UserTransaction.class
+org/example/saga/payment/config/PaymentConsumerConfig.class
+org/example/saga/payment/service/PaymentService.class
+org/example/saga/payment/repository/UserBalanceRepository.class
+org/example/saga/payment/repository/UserTransactionRepository.class

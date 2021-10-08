@@ -1,0 +1,7 @@
+org/example/saga/order/controller/OrderResource.class
+org/example/saga/order/service/OrderService.class
+org/example/saga/order/repository/PurchaseOrderRepository.class
+org/example/saga/order/config/OrderProducerConfig.class
+org/example/saga/order/service/OrderStatusProducer.class
+org/example/saga/order/entity/PurchaseOrder$PurchaseOrderBuilder.class
+org/example/saga/order/entity/PurchaseOrder.class

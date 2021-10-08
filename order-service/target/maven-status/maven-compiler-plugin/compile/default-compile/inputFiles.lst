@@ -1,0 +1,6 @@
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/order-service/src/main/java/org/example/saga/order/controller/OrderResource.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/order-service/src/main/java/org/example/saga/order/service/OrderStatusProducer.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/order-service/src/main/java/org/example/saga/order/entity/PurchaseOrder.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/order-service/src/main/java/org/example/saga/order/config/OrderProducerConfig.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/order-service/src/main/java/org/example/saga/order/service/OrderService.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/order-service/src/main/java/org/example/saga/order/repository/PurchaseOrderRepository.java

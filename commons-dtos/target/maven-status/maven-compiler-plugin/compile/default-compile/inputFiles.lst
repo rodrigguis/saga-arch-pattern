@@ -1,0 +1,10 @@
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/event/OrderStatus.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/event/PaymentEvent.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/event/Event.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/event/OrderEvent.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/dto/OrderRequestDTO.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/dto/PaymentResponseDTO.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/PaymentResponseDTO.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/dto/PaymentRequestDTO.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/dto/OrderResponseDTO.java
+/home/rrodrigues/Code/Youtube/saga-arch-pattern/commons-dtos/src/main/java/org/example/saga/common/event/PaymentStatus.java
